@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "cover_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "short_description": {
+      "type": "text"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "الصحة النفسية",
+        "العلاقات",
+        "القلق",
+        "الاكتئاب",
+        "تطوير الذات",
+        "الأطفال",
+        "الزواج"
+      ]
+    },
+    "author": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "reading_time": {
+      "type": "integer"
+    },
+    "views": {
+      "type": "biginteger"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "publish_date": {
+      "type": "datetime"
+    },
+    "SEO": {
+      "type": "component",
+      "component": "type.field",
+      "repeatable": false
+    },
+    "related_articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  }
+}
